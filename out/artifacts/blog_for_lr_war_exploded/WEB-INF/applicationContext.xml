@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+
+    <mvc:view-controller path="/toRegistry" view-name="registry"></mvc:view-controller>
+    <mvc:view-controller path="/toWrite" view-name="writePassage"></mvc:view-controller>
+    <mvc:view-controller path="/toLogin" view-name="login"></mvc:view-controller>
+
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <context:component-scan base-package="main.wh"></context:component-scan>
+
+
+<!--    配置数据源，使用c3p0连接池     -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;
+                characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone = GMT"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="admin"></property>
+    </bean>
+
+<!--    给mybatis配置sqlsessionfactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:mybatis/blogdao.xml</value>
+                <value>classpath:mybatis/userdao.xml</value>
+                <value>classpath:mybatis/commentdao.xml</value>
+            </array>
+        </property>
+<!--        <property name="plugins">-->
+<!--            <array>-->
+<!--                <bean class="com.github.pagehelper.PageInterceptor">-->
+<!--                    <property name="properties">-->
+<!--                        <value></value>-->
+<!--                    </property>-->
+<!--                </bean>-->
+<!--            </array>-->
+<!--        </property>-->
+    </bean>
+
+<!--    导入dao的接口-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="main.wh.dao"></property>
+    </bean>
+
+
+
+
+
+
+
+
+
+
+
+
+</beans>

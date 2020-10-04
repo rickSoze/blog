@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wh.dao.BookDao">
+<!--    public Book getBook(string bookname);-->
+<!--    public List<wh.bean.Book> getBooks();-->
+<!--    public void deleteByBookName();-->
+<!--    getBookById-->
+<!--    updateBook(Book book)-->
+<!--    addBook(Book book)-->
+<!--    public void setStock(Integer stock)-->
+
+
+    <update id="setStock">
+        update book set book_stock = #{bookStock} where book_id = #{bookId}
+    </update>
+
+    <insert id="addBook">
+        insert into book(book_name,book_price,book_author,book_stock) values
+                        (#{bookName},#{bookPrice},#{bookAuthor},#{bookStock})
+    </insert>
+
+    <update id="updateBook">
+        update book set book_name=#{bookName},
+                        book_price=#{bookPrice},
+                        book_author=#{bookAuthor},
+                        book_stock=#{bookStock} where book_id = #{bookId}
+    </update>
+
+    <select id="getBookById" resultType="wh.bean.Book">
+        select *from  book where book_id = #{bookid}
+    </select>
+
+    <select id="getBook" resultType="wh.bean.Book">
+        select * from book where book_name=#{bookname}
+    </select>
+
+    <select id="getBooks" resultType="wh.bean.Book">
+        select * from book
+    </select>
+
+    <delete id="deleteByBookName">
+        delete from book where book_name=#{bookname}
+    </delete>
+
+
+        <insert id="insertMany">
+            INSERT INTO book(book_name) VALUES
+            <foreach collection="books" item="book" separator=",">
+                (#{book.bookName})
+            </foreach>
+        </insert>
+
+</mapper>
