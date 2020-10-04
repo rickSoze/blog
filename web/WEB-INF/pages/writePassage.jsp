@@ -42,14 +42,31 @@
 </head>
 <style>
     .titlecss{
+        font-size: 20px;
+        color: dodgerblue;
         white-space: pre-wrap;
     }
 
     .text{
+        font-size: 20px;
         white-space: pre-wrap;
-        height: 100px;
-        width: 100px;
+        height: 500px;
+        width: 500px;
     }
+
+     a:link {
+         color: blue;
+         text-decoration: none;
+      }
+    a:visited {
+        color: blue;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #999999;
+        text-decoration: underline;
+    }
+
 </style>
 <body>
 <div align="center">

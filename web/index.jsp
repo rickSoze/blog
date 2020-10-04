@@ -9,6 +9,22 @@
 <head>
   <meta charset="UTF-8">
   <title>奇怪的博客</title>
+  <style type="text/css">
+
+    a:link {
+      color: blue;
+      text-decoration: none;
+    }
+    a:visited {
+      color: blue;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #999999;
+      text-decoration: underline;
+    }
+
+  </style>
 </head>
 <body>
 <h1 align="center">这是一个“极简”的博客</h1>

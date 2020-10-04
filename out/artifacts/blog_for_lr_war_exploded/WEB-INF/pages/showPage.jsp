@@ -55,6 +55,22 @@
         })
 
     </script>
+    <style type="text/css">
+
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+        a:visited {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #999999;
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 <body>
 

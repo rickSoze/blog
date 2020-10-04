@@ -10,7 +10,11 @@ public class UserService {
     @Autowired
     UserDao userDao;
     public User login(User user){
-        if (userDao.isExist(user.getUserName())!=null){
+        String name = user.getUserName();
+        if (userDao.isExist(name)  !=null  ){
+            String pwd = userDao.getPwd(user.getUserName());
+
+            if (pwd.equals(user.getUserPwd()))
            return userDao.getUser(user.getUserName());
         }
         return null;

@@ -11,6 +11,23 @@
 <head>
     <meta charset="UTF-8">
     <title>我的博客</title>
+    <style type="text/css">
+
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+        a:visited {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #999999;
+            text-decoration: underline;
+        }
+
+    </style>
+
     <script type="text/javascript" src="jquery-3.5.1.js"></script>
     <script type="text/javascript">
         $(function () {

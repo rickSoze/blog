@@ -19,6 +19,8 @@
                     $("#msg1").replaceWith("<b id='msg1' style='color:red;'>用户名不能为空！请修改</b>");
                 }
                 else $("#msg1").replaceWith("<b id='msg1' ></b>")
+
+                $("#msg3").text("")
             })
 
             $("#userpwd").focusout(function () {
@@ -27,9 +29,28 @@
                     $("#msg2").replaceWith("<b id='msg2' style='color:red;'>密码不能为空！请修改</b>");
                 }
                 else $("#msg2").replaceWith("<b id='msg2' ></b>")
+
+                $("#msg3").text("")
             })
         })
     </script>
+
+    <style type="text/css">
+
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+        a:visited {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #999999;
+            text-decoration: underline;
+        }
+
+    </style>
         </head>
 <body>
 
@@ -45,7 +66,7 @@
         <br>
         <a href="toLogin">返回登录页面</a>
     </div>
-    <div style="color:red;">
+    <div  id="msg3" style="color:red;">
         ${regFailed}
     </div>
 </form>

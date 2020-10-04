@@ -22,6 +22,20 @@
         height: 500px;
         width: 500px;
     }
+
+                          a:link {
+                              color: blue;
+                              text-decoration: none;
+                          }
+    a:visited {
+        color: blue;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #999999;
+        text-decoration: underline;
+    }
+
 </style>
 <body>
 <div align="center">

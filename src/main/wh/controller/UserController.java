@@ -20,9 +20,10 @@ public class UserController {
     @RequestMapping("/login")
     public String login(User user, Model model,HttpSession session){
          User logined = userService.login(user);
+
          if (logined==null) {
              model.addAttribute("loginFailed","用户名或密码错误！");
-             return "forward:/index.jsp";
+             return "login";
          }
 
 
