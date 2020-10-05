@@ -19,6 +19,10 @@
                 $("#msg").replaceWith("<b id='msg' style='color:red;'>文章标题不能为空！请修改</b>");
                 return;
             }
+            if (title.length>=15) {
+                $("#msg").replaceWith("<b id='msg' style='color:red;'>文章标题过长！请修改</b>");
+                return;
+            }
             $.get(
                 "queryBlog",
                 {

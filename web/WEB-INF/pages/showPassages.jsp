@@ -25,6 +25,11 @@
             color: #999999;
             text-decoration: underline;
         }
+        .ch{
+            font-size: 20px;
+            font-weight: bold;
+            color: darkslategray;
+        }
 
     </style>
 
@@ -58,13 +63,15 @@
 </head>
 <body>
 <div align="center">
+    <h1 align="center" style="color:deeppink;">欢迎！${user.userName}</h1>
     <a href="toWrite" style="font-size: 30px">写文章</a>
     <br>
-    <table border="solid 2px">
+    <br>
+    <table border="solid 1px">
     <tr>
-        <td>文章题目</td>
-        <td>修改文章</td>
-        <td>删除文章</td>
+        <td class="ch">查看文章</td>
+        <td class="ch">修改文章</td>
+        <td class="ch">删除文章</td>
     </tr>
         <c:forEach items="${blogTitles}" var="title">
             <tr>
