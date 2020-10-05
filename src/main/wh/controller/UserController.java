@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -32,13 +33,19 @@ public class UserController {
         return "forward:/showMyBlogs";
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("user");
+        return "login";
+    }
+
 
     @RequestMapping(value = "/registry",method = RequestMethod.POST)
     public String registry(User user,Model model){
          boolean passed= userService.registry(user);
         if (passed){
             model.addAttribute("regSuccess","注册成功！");
-            return "forward:/index.jsp";
+            return "login";
         }
 
         model.addAttribute("regFailed","用户已存在！");

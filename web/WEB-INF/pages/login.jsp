@@ -8,17 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <meta charset="UTF-8">
-    <title>登录</title>
+    <title>用户登录</title>
     <style type="text/css">
 
         a:link {
             color: blue;
             text-decoration: none;
         }
+
         a:visited {
             color: blue;
             text-decoration: none;
         }
+
         a:hover {
             color: #999999;
             text-decoration: underline;
@@ -28,13 +30,22 @@
 </head>
 
 <body>
-<form style="width: 30em; margin: 150px auto auto;" method="post" action="login">
-    <h3 style="color:green;">用户登录</h3>
-    <div>
-        <b>用户名：</b><input name="userName" type="text"/>
-        <br/>
-        <b>密码：</b><input type="password" name="userPwd"/>
-        <br/>
+<h2 align="center" style="color:green;">用户登录</h2>
+
+
+<form style="width: 30em; margin: 50px auto auto;" method="post" action="login">
+    <table>
+        <tr>
+            <td><b>用户名：</b></td>
+            <td><input name="userName" type="text"/></td>
+        </tr>
+        <tr>
+            <td><b>密码：</b></td>
+            <td><input name="userPwd" type="password"/></td>
+        </tr>
+
+    </table>
+    <div style="align-content: center">
         <input type="submit" value="登录">
         <br>
         <a href="toRegistry">没有账号？注册一个</a>

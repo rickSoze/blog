@@ -64,7 +64,10 @@
 <body>
 <div align="center">
     <h1 align="center" style="color:deeppink;">欢迎！${user.userName}</h1>
-    <a href="toWrite" style="font-size: 30px">写文章</a>
+    <a href="logout" style="font-size: 15px">退出登录</a>
+    <br>
+    <br>
+    <a href="toWrite" style="font-size: 40px">写文章</a>
     <br>
     <br>
     <table border="solid 1px">
