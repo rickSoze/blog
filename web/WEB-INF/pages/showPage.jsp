@@ -83,7 +83,7 @@
         ${blog.content}
     </textarea>
     <br>
-    <a href="showMyBlogs">返回</a>
+    <a href="toMain">返回</a>
 </div>
 <div align="center">
     <table id="comments">

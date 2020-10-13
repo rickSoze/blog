@@ -25,7 +25,7 @@
 
 <!--    配置数据源，使用c3p0连接池     -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;
                 characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone = GMT"></property>
         <property name="user" value="root"></property>

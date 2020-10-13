@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.nio.channels.SeekableByteChannel;
 import java.util.List;
 
 @Controller
@@ -24,6 +25,15 @@ public class BlogController {
 
     @Autowired
     CommentService commentService;
+
+    @RequestMapping("/toMain")
+    public String toMain(Model model){
+        List<String> allBlogTitles = blogService.getAllBlogTitles(2);
+        model.addAttribute("blogs",allBlogTitles);
+        return "GuestPage";
+    }
+
+
 
     @RequestMapping("/showMyBlogs")
    public String showBlogs(Model model,HttpSession session){
@@ -67,12 +77,15 @@ public class BlogController {
     }
 
     @RequestMapping("/showBlog")
-    public String showBlog(String title,Model model){
+    public String showBlog(String title,Model model,HttpSession session){
         Blog blog = blogService.getBlog(title);
         List<Comment> comments = commentService.getComments(blog.getBid());
         model.addAttribute("comments",comments);
         model.addAttribute("blog",blog);
-        return "showPage";
+        if (session.getAttribute("user")!=null)
+                return "showPage";
+        return "GuestShowPage";
+
     }
 
     @ResponseBody

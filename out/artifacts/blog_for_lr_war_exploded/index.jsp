@@ -29,7 +29,7 @@
 <body>
 <h1 align="center">这是一个“极简”的博客</h1>
 <div align="center">
-  <a href="toLogin" style="font-size: 40px;color: hotpink">开始探索</a>
+  <a href="toMain" style="font-size: 40px;color: hotpink">开始探索</a>
 </div>
 </body>
 

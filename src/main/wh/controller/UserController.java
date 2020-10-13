@@ -18,6 +18,7 @@ public class UserController {
 
 
 
+
     @RequestMapping("/login")
     public String login(User user, Model model,HttpSession session){
          User logined = userService.login(user);
@@ -36,19 +37,19 @@ public class UserController {
     @RequestMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("user");
-        return "login";
+        return "forward:/toMain";
     }
 
-
-    @RequestMapping(value = "/registry",method = RequestMethod.POST)
-    public String registry(User user,Model model){
-         boolean passed= userService.registry(user);
-        if (passed){
-            model.addAttribute("regSuccess","注册成功！");
-            return "login";
-        }
-
-        model.addAttribute("regFailed","用户已存在！");
-        return "registry";
-    }
+//
+//    @RequestMapping(value = "/registry",method = RequestMethod.POST)
+//    public String registry(User user,Model model){
+//         boolean passed= userService.registry(user);
+//        if (passed){
+//            model.addAttribute("regSuccess","注册成功！");
+//            return "login";
+//        }
+//
+//        model.addAttribute("regFailed","用户已存在！");
+//        return "registry";
+//    }
 }

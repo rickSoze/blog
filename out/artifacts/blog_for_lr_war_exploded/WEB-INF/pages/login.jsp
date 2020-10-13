@@ -48,7 +48,7 @@
     <div style="align-content: center">
         <input type="submit" value="登录">
         <br>
-        <a href="toRegistry">没有账号？注册一个</a>
+<%--        <a href="toRegistry">没有账号？注册一个</a>--%>
     </div>
 
     <div>
