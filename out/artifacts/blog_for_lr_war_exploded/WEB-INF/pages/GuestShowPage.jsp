@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 文杭
-  Date: 2020/10/3
-  Time: 22:29
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
 <head>
-    <title>查看博客</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>wh的博客</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
     <script type="text/javascript" src="jquery-3.5.1.js"></script>
     <script>
         $(function() {
@@ -36,51 +31,75 @@
         })
 
     </script>
-    <style type="text/css">
-
-        a:link {
-            color: blue;
-            text-decoration: none;
+    <style>
+        .pp:link{
+            color: #009688;
         }
-        a:visited {
-            color: blue;
-            text-decoration: none;
+        .pp:hover{
+            color: #009688;
         }
-        a:hover {
-            color: #999999;
-            text-decoration: underline;
+        .pp:visited{
+            color: #009688;
         }
-
     </style>
 </head>
-<body>
+<body class="layui-layout-body" style="font-size: 18px">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo"><a class="pp" href="toMain" style="font-size: 30px">wh的博客</a></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+    </div>
 
-<div align="center">
-    <b style="font-size: 50px;color: #009688">${blog.blogTitle}</b>
-</div>
-<br>
-<div align="center">
-    <textarea cols="80" rows="30" disabled>
-        ${blog.content}
-    </textarea>
-    <br>
-    <a href="toMain">返回</a>
-</div>
-<div align="center">
-    <table id="comments">
-        <c:forEach var="c" items="${comments}">
-            <tr>
-                <td>评论：${c.content}</td>
-            </tr>
-        </c:forEach>
-        <form action="addCom" method="post">
-            输入评论：<input name="content"><br>
-            <input type="hidden" name="forBlog" value="${blog.bid}">
-            <input id="sub" type="submit" value="提交评论">
-        </form>
-    </table>
-</div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;"><div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body">
 
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-header" style="font-size: 25px" aria-disabled="true">${blog.blogTitle}</div>
+                            <div class="layui-card-body">
+                                <textarea style="width:1000px; height:400px;font-size: 20px" disabled>
+                                ${blog.content}
+                                </textarea>>
+                            </div>
+
+                            <div class="layui-card-header"><a href="toMain" style="font-size: 15px">返回</a></div>
+                            <div class="layui-card-header" style="font-size: 15px">评论</div>
+                            <div class="layui-card-body">
+                                <div align="center">
+                                    <table id="comments">
+                                        <c:forEach var="c" items="${comments}">
+                                            <tr>
+                                                <td>评论：${c.content}</td>
+                                            </tr>
+                                        </c:forEach>
+
+                                        <form action="addCom" method="post">
+                                            输入评论：<input name="content">
+                                            <input id="sub" type="submit" value="提交评论" >
+                                            <input type="hidden" name="forBlog" value="${blog.bid}">
+
+                                        </form>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div></div>
+    </div>
+
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+
+    </div>
+</div>
 
 </body>
 </html>

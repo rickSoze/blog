@@ -24,11 +24,20 @@
       text-decoration: underline;
     }
 
+     div{
+       position: fixed;
+       top: 30%;
+       left: 0px;
+       right: 0px;
+       bottom: 0px;
+       margin: auto;
+     }
+
   </style>
 </head>
 <body>
-<h1 align="center">这是一个“极简”的博客</h1>
 <div align="center">
+<h1 align="center">这是一个“极简”的博客</h1>
   <a href="toMain" style="font-size: 40px;color: hotpink">开始探索</a>
 </div>
 </body>

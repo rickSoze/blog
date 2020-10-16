@@ -14,19 +14,34 @@
     </bean>
 
 
-    <mvc:view-controller path="/toRegistry" view-name="registry"></mvc:view-controller>
-    <mvc:view-controller path="/toWrite" view-name="writePassage"></mvc:view-controller>
+    <!--过滤静态资源-->
+    <mvc:resources mapping="/layui/**" location="/layui/"/>
+    <!--        <mvc:resources mapping="/font/**" location="/font/"/>-->
+    <!--        <mvc:resources mapping="/images/**" location="/images/"/>-->
+    <!--        <mvc:resources mapping="/lay/**" location="/lay/"/>-->
+    <!--        <mvc:resources mapping="/js/**" location="/js/"/>-->
+
+
+    <mvc:view-controller path="/toWrite" view-name="writePage"></mvc:view-controller>
     <mvc:view-controller path="/toLogin" view-name="login"></mvc:view-controller>
+
+
+
+    <!--过滤静态资源-->
+    <mvc:resources mapping="/layui/**" location="/layui/"/>
 
     <mvc:annotation-driven></mvc:annotation-driven>
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
+
+
+
     <context:component-scan base-package="main.wh"></context:component-scan>
 
 
 <!--    配置数据源，使用c3p0连接池     -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;
+        <property name="jdbcUrl" value="jdbc:mysql://172.17.0.2:3306/blog?useUnicode=true&amp;
                 characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone = GMT"></property>
         <property name="user" value="root"></property>
         <property name="password" value="admin"></property>

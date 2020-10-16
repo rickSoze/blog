@@ -30,7 +30,7 @@ public class BlogController {
     public String toMain(Model model){
         List<String> allBlogTitles = blogService.getAllBlogTitles(2);
         model.addAttribute("blogs",allBlogTitles);
-        return "GuestPage";
+        return "guest";
     }
 
 
@@ -45,7 +45,7 @@ public class BlogController {
 //        PageInfo pageInfo = new PageInfo(allBlogTitles);
 
         model.addAttribute("blogTitles",allBlogTitles);
-        return "showPassages";
+        return "admin";
     }
 
     @ResponseBody
@@ -67,7 +67,7 @@ public class BlogController {
     public String toUpdate(String title,Model model){
         Blog blog = blogService.getBlog(title);
         model.addAttribute("blog",blog);
-        return "update";
+        return "updatePage";
     }
 
     @RequestMapping("/update")
@@ -83,8 +83,8 @@ public class BlogController {
         model.addAttribute("comments",comments);
         model.addAttribute("blog",blog);
         if (session.getAttribute("user")!=null)
-                return "showPage";
-        return "GuestShowPage";
+                return "adminShowPage";
+        return "guestShowPage";
 
     }
 
