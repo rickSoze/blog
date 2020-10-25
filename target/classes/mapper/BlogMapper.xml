@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wh.mapper.BlogDao">
+    <!--
+     //根据用户id查询用户的所有blog
+    public ArrayList<Blog> getBlogsByUserId(Integer userId);
+     //根据用户id查询用户的所有blog的标题
+    public ArrayList<String> getBlogTitlesByUserId(Integer userId);
+    //根据博客标题查询一篇博客
+    public Blog getBlogByTitle(String title);
+    //查看一篇博客
+    public Blog getBlogById(Integer bid);
+    //添加一篇博客
+    public void addBlog(Blog blog);
+    //删除博客
+    public void deleteBlogById(Integer bid);
+    public void deleteBlogByTitle(String  title);
+    //修改博客
+    public void updateBlog(Blog blog);-->
+
+<!--     //根据用户id查询用户的所有blog-->
+    <select id="getBlogsByUserId" resultMap="blogmap">
+        SELECT *FROM blogs WHERE blog_owner = #{userId}
+    </select>
+
+<!--     //根据用户id查询用户的所有blog的标题-->
+    <select id="getBlogTitlesByUserId" resultType="string">
+        SELECT blog_title FROM blogs WHERE blog_owner = #{userId}  ORDER BY bid DESC
+    </select>
+
+<!--     //根据博客标题查询一篇博客-->
+    <select id="getBlogByTitle" resultMap="blogmap">
+       SELECT * FROM blogs WHERE blog_title = #{title}
+    </select>
+
+<!--    //添加一篇博客-->
+    <insert id="addBlog" useGeneratedKeys="true" keyProperty="bid">
+       INSERT INTO blogs (blog_owner,content,blog_title) VALUES
+                        (#{blogOwner},#{content},#{blogTitle})
+    </insert>
+
+<!--     //删除博客-->
+    <delete id="deleteBlogById">
+        DELETE FROM blogs WHERE bid = #{bid}
+    </delete>
+    <delete id="deleteBlogByTitle">
+        DELETE FROM blogs WHERE blog_title =#{title}
+    </delete>
+
+<!--    //修改博客-->
+<!--    public void updateBlog(Blog blog)-->
+    <update id="updateBlog">
+        UPDATE blogs SET content=#{content},blog_title=#{blogTitle} WHERE bid =#{bid}
+    </update>
+
+
+    <resultMap id="blogmap" type="com.wh.bean.Blog">
+        <id column="bid" property="bid"></id>
+        <result property="blogOwner" column="blog_owner"></result>
+        <result property="content" column="content"></result>
+        <result property="blogTitle" column="blog_title"></result>
+    </resultMap>
+
+</mapper>

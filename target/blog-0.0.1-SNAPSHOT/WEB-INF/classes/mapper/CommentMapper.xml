@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wh.mapper.CommentDao">
+
+    <!-- //查看评论
+    public ArrayList<Comment> getCommentByBlogId(Integer bid);
+    //删除评论
+    public void deleteCommentByCid(Integer cid);
+        //添加评论
+    public void  addCom(Comment comment);
+    -->
+
+    <select id="getCommentByBlogId" resultMap="commap">
+        SELECT * FROM comments WHERE for_blog=#{bid}
+    </select>
+
+    <delete id="deleteCommentByCid">
+        DELETE FROM comments WHERE cid=#{cid}
+    </delete>
+
+    <insert id="addCom"  useGeneratedKeys="true" keyProperty="cid">
+        INSERT INTO comments (for_blog,content) VALUES(#{forBlog},#{content})
+    </insert>
+
+
+<resultMap id="commap" type="com.wh.bean.Comment">
+    <id property="cid" column="cid"></id>
+    <result property="forBlog" column="for_blog"></result>
+    <result property="content" column="content"></result>
+</resultMap>
+
+
+
+
+
+
+
+
+</mapper>
