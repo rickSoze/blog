@@ -52,6 +52,7 @@ public class BlogController {
     @RequestMapping("/deleteBlog")
     public void deleteBlog(String title){
         blogService.deleteBlog(title);
+        //不反悔表示？
         return;
     }
 
@@ -107,7 +108,7 @@ public class BlogController {
     @RequestMapping("/addCom")
     public void addCom(Comment comment){
         commentService.addComment(comment);
-        return;
+        return ;
     }
 
 

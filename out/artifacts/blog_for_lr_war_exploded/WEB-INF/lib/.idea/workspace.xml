@@ -12,7 +12,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SourceCodeStudy" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.20251836" />
     <property name="settings.editor.selected.configurable" value="yiiguxing.plugin.translate" />
   </component>
   <component name="RunDashboard">
@@ -105,6 +108,12 @@
       <workItem from="1601958740623" duration="395000" />
       <workItem from="1602587820107" duration="859000" />
       <workItem from="1602593604296" duration="37000" />
+      <workItem from="1603281013256" duration="658000" />
+      <workItem from="1603422805969" duration="627000" />
+      <workItem from="1604645977283" duration="43000" />
+      <workItem from="1606907172433" duration="203000" />
+      <workItem from="1606922986086" duration="651000" />
+      <workItem from="1606978868378" duration="11000" />
     </task>
     <servers />
   </component>

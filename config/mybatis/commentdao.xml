@@ -20,6 +20,7 @@
         DELETE FROM comments WHERE cid=#{cid}
     </delete>
 
+<!---->
     <insert id="addCom"  useGeneratedKeys="true" keyProperty="cid">
         INSERT INTO comments (for_blog,content) VALUES(#{forBlog},#{content})
     </insert>
